@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @booking_history %>
+
+<div>
+  <%= link_to "Edit this booking history", edit_booking_history_path(@booking_history) %> |
+  <%= link_to "Back to booking histories", booking_histories_path %>
+
+  <%= button_to "Destroy this booking history", @booking_history, method: :delete %>
+</div>

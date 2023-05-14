@@ -1,0 +1,42 @@
+<%= form_with(model: booking_history) do |form| %>
+  <% if booking_history.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(booking_history.errors.count, "error") %> prohibited this booking_history from being saved:</h2>
+
+      <ul>
+        <% booking_history.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.collection_select :user_id, User.all, :id, :name %>
+  </div>
+
+  <div>
+    <%= form.label :room_id, style: "display: block" %>
+    <%= form.collection_select :room_id, Room.all, :id, :id %>
+  </div>
+
+  <div>
+    <%= form.label :checkIn, style: "display: block" %>
+    <%= form.date_field :checkIn %>
+  </div>
+
+  <div>
+    <%= form.label :checkOut, style: "display: block" %>
+    <%= form.date_field :checkOut %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
