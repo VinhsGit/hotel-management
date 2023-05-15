@@ -22,6 +22,7 @@ class BookingHistoriesController < ApplicationController
   # POST /booking_histories or /booking_histories.json
   def create
     @booking_history = BookingHistory.new(booking_history_params)
+    @booking_history.room.update(isAvailable: false)
 
     respond_to do |format|
       if @booking_history.save
